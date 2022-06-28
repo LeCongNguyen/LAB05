@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
-import {Link} from 'react-router-dom'
+import React, { Component } from "react";
+import { Nav, Navbar, NavItem, NavbarBrand, NavbarToggler, Collapse} from "reactstrap";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
@@ -21,47 +21,49 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar dark expand="md">
+        <Navbar color="primary" dark expand="md">
           <div className="container">
-            <NavbarToggler onClick={this.toggleNav} />
+            <NavbarToggler navbar onClick={this.toggleNav} className='mr-4' />
             <NavbarBrand
-              className="mr-auto"
+              className="mr-auto respond-hide"
               href="/">
               <img
-                src='assets/images/logo.png'
-                height="30"
-                width="41"
-                alt='Ristorante Con Fusion'
+                src="assets/images/logo.png"
+                width="50"
+                alt="company logo"
+                className="mr-3"
               />
             </NavbarBrand>
             <Collapse navbar isOpen={this.state.isNavOpen}>
               <Nav navbar>
                 <NavItem>
-                  <Link className="nav-link" to='/home'><span className="fa fa-home fa-lg"></span> Home</Link>
+                  <Link
+                    className="nav-link mr-2"
+                    to="/stafflist">
+                    <span className="fa fa-users fa-lg mr-1"></span>
+                    Nhân viên
+                  </Link>
                 </NavItem>
                 <NavItem>
-                  <Link className="nav-link" to='/aboutus'><span className="fa fa-info fa-lg"></span> About Us</Link>
+                  <Link
+                    className="nav-link mr-2"
+                    to="/department">
+                    <span className="fa fa-address-card-o fa-lg  mr-1"></span>
+                    Phòng ban
+                  </Link>
                 </NavItem>
                 <NavItem>
-                  <Link className="nav-link" to='/menu'><span className="fa fa-list fa-lg"></span> Menu</Link>
-                </NavItem>
-                <NavItem>
-                  <Link className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</Link>
+                  <Link
+                    className="nav-link"
+                    to="/salary">
+                    <span className="fa fa-money fa-lg  mr-1"></span>
+                    Bảng lương
+                  </Link>
                 </NavItem>
               </Nav>
             </Collapse>
           </div>
         </Navbar>
-        <Jumbotron>
-          <div className="container">
-            <div className="row row-header">
-              <div className="col-12 col-sm-6">
-                <h1>Ristorante con Fusion</h1>
-                <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
-              </div>
-            </div>
-          </div>
-        </Jumbotron>
       </React.Fragment>
     );
   }
